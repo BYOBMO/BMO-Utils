@@ -64,7 +64,62 @@ void getLimits()
 	}
 }
 
+void savePosition(int left, int right)
+{
+	FILE* f;
+	int min, max;
+	char str[100];
 
+	f = fopen("/home/pi/bmos/servos/position.txt", "w+");
+	if (f != NULL)
+	{
+		fprintf(f, "left: %d\n", left);
+		fprintf(f, "right: %d\n", right);
+		fclose(f);
+	}
+}
+
+void loadPosition()
+{
+	FILE* f;
+	int val, left, right;
+	char str[100];
+
+	f = fopen("/home/pi/bmos/servos/position.txt", "r");
+	if (f != NULL)
+	{
+		fscanf(f, "%s %d", str, &val);
+		if (strcmp(str, "left:") == 0)
+		{
+			left = val;
+		}
+		else if (strcmp(str, "right:") == 0)
+		{
+			right = val;
+		}
+
+		fscanf(f, "%s %d", str, &val);
+		if (strcmp(str, "left:") == 0)
+		{
+			left = val;
+		}
+		else if (strcmp(str, "right:") == 0)
+		{
+			right = val;
+		}
+
+		printf("left %d\n", left);
+		printf("right %d\n", right);
+		fclose(f);
+
+		pwmWrite(PIN_BASE + 0, right);
+		pwmWrite(PIN_BASE + 1, left);
+	}
+	else
+	{
+		printf("Can't open position file.\n");
+	}
+}
 
 float millisFromAngle(float angle)
 {
@@ -498,5 +553,15 @@ int main(int argc, char** argv)
 			move(PIN_BASE + 1, tick, del);
 		}
 	}
+	else if (arm == 'i')
+	{
+		//Initialize from file.
+		loadPosition();
+	}
+
+	int leftTick = digitalRead(PIN_BASE + 1) & 0xFFF;
+	int rightTick = digitalRead(PIN_BASE + 0) & 0xFFF;
+	savePosition(leftTick, rightTick);
+
 	return 0;
 }
