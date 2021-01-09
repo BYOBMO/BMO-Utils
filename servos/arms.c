@@ -458,13 +458,13 @@ int main(int argc, char** argv)
 			int saveTick1 = rightCheck(digitalRead(PIN_BASE + 0) & 0xFFF);
 			int saveTick2 = leftCheck(digitalRead(PIN_BASE + 1) & 0xFFF);
 
-			float millis = millisFromAngle(90);
+			float millis = millisFromAngle(rightMax - 35);
 			int tick = calcTicks(millis, HERTZ);
 			move(PIN_BASE + 0, tick, del);
 
 			delay(100);
 
-			millis = millisFromAngle(90);
+			millis = millisFromAngle(leftMin + 35);
 			tick = calcTicks(millis, HERTZ);
 			move(PIN_BASE + 1, tick, del);
 
@@ -474,7 +474,7 @@ int main(int argc, char** argv)
 
 			delay(200);
 
-			move(PIN_BASE + 0, saveTick2, del);
+			move(PIN_BASE + 1, saveTick2, del);
 		}
 		else
 		{
@@ -516,6 +516,19 @@ int main(int argc, char** argv)
 			delay(250);
 			move(PIN_BASE + 0, saveTick, del);
 		}
+		else if (dir == 'p')
+		{
+			int saveTick1 = rightCheck(digitalRead(PIN_BASE + 0) & 0xFFF);
+			int saveTick2 = leftCheck(digitalRead(PIN_BASE + 1) & 0xFFF);
+
+			float millis = millisFromAngle(rightMax - 45);
+			int tick = calcTicks(millis, HERTZ);
+			move(PIN_BASE + 0, tick, del);
+
+			delay(1000);
+
+			move(PIN_BASE + 0, saveTick1, del);
+		}
 		else
 		{
 			if (dir == 'u')
@@ -554,6 +567,19 @@ int main(int argc, char** argv)
 
 			delay(250);
 			move(PIN_BASE + 1, saveTick, del);
+		}
+		else if (dir == 'p')
+		{
+			int saveTick1 = rightCheck(digitalRead(PIN_BASE + 0) & 0xFFF);
+			int saveTick2 = leftCheck(digitalRead(PIN_BASE + 1) & 0xFFF);
+
+			float millis = millisFromAngle(leftMin + 45);
+			int tick = calcTicks(millis, HERTZ);
+			move(PIN_BASE + 1, tick, del);
+
+			delay(1000);
+
+			move(PIN_BASE + 1, saveTick2, del);
 		}
 		else
 		{
