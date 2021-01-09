@@ -1,0 +1,28 @@
+<theme>
+    <formatVersion>3</formatVersion>
+    <include>./../turtlepi-main.xml</include>
+
+	<view name="system">
+
+	<!-- basic, detailed -->
+	
+		<image name="logo">
+			<path>./logo.png</path>
+        </image>
+	</view>
+	
+	<view name="basic, detailed">
+
+		<text name="logoText" extra="true">
+			<text>M.A.M.E4ALL (Arcade)</text>
+		<!-- <forceUppercase>1</forceUppercase> -->
+			<size>0.45 0.08</size>
+			<pos>0.528 0.0495</pos>
+			<color>ffffff</color>
+			<fontPath>./../assets/font2.ttf</fontPath>
+			<fontSize>0.05</fontSize>
+			<alignment>center</alignment>
+		</text>
+	</view>
+	
+</theme>

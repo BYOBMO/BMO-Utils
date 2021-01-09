@@ -1,0 +1,130 @@
+<!--
+theme name:		bmos
+version:		1.0
+author:			Bob Herzberg
+license:		licensed under a Creative Commons Attribution Share Alike license.
+http://creativecommons.org/licenses/by-sa/3.0/
+-->
+
+<theme>
+    <formatVersion>3</formatVersion>
+
+	<view name="system">
+	
+		<image name="background" extra="true">
+		    <path>./assets/bground-menu.png</path>
+			<tile>false</tile>
+			<pos>0 0</pos>
+			<origin>0 0</origin>
+			<size>1 1</size>
+		</image>
+	
+	</view>
+	
+    <view name="basic">
+	
+		<image name="background">
+			<path>./assets/bground-empty.png</path>
+			<tile>false</tile>
+			<pos>0 0</pos>
+			<origin>0 0</origin>
+			<size>1 1</size>
+		</image> 
+		
+		<textlist name="gamelist">
+			<pos>0.300 0.205</pos>
+			<size>0.40 0.635</size>
+			<alignment>left</alignment>
+			<horizontalMargin>0.01</horizontalMargin>
+		</textlist>
+   
+	</view>
+	
+	<view name="detailed">
+	
+		<image name="background">
+			<path>./assets/bground-full.png</path>
+			<tile>false</tile>
+			<pos>0 0</pos>
+			<origin>0 0</origin>
+			<size>1 1</size>
+		</image>
+		
+		<image name="md_image">
+			<pos>0.752 0.38</pos>
+	   <!-- <size>0.135 0.301</size> -->
+			<maxSize>0.450 0.350</maxSize>
+			<origin>0.5 0.5</origin>
+		</image>
+
+		<textlist name="gamelist">
+			<pos>0.0670 0.210</pos>
+			<size>0.40 0.635</size>
+			<alignment>left</alignment>
+			<horizontalMargin>0.01</horizontalMargin>
+		</textlist>
+
+		<text name="md_description">
+			<fontPath>./assets/8bitoperator.ttf</fontPath>
+			<fontSize>0.050</fontSize>
+			<size>0.425 0.215</size>
+			<alignment>center</alignment>
+			<lineSpacing>0.86</lineSpacing>
+			<color>000000</color>
+			<pos>0.545 0.665</pos>
+		</text>
+		
+	</view>
+
+  <view name="system, basic, detailed">
+
+    <image name="system_help" extra="true">
+      <!-- <path>./assets/system_help.png</path> -->
+      <path>./assets/system_help.png</path>
+      <size>1 0</size>
+      <pos>0 1</pos>
+      <origin>0 1</origin>
+    </image>
+
+    <helpsystem name="help">
+      <textColor>000000</textColor>
+      <iconColor>000000</iconColor>
+      <fontPath>./assets/invisible.ttf</fontPath>
+      <pos>2 2</pos>
+      <fontSize>0.06666666666666</fontSize>
+    </helpsystem>
+
+  </view>
+
+  <view name="basic, detailed">
+		<text name="md_lbl_rating, md_lbl_releasedate, md_lbl_developer, md_lbl_publisher, md_lbl_genre, md_lbl_lastplayed, md_lbl_playcount, md_developer, md_publisher, md_playcount, md_lbl_players">
+			<fontPath>./assets/invisible.ttf</fontPath>
+			<fontSize>0.01</fontSize>
+			<pos>1 1</pos>
+		</text>
+
+		<datetime name="md_releasedate, md_lastplayed">
+			<fontPath>./assets/invisible.ttf</fontPath>
+			<fontSize>0.01</fontSize>
+			<pos>1 1</pos>
+		</datetime>
+		
+
+		<textlist name="gamelist">
+			<selectorColor>30D8F8</selectorColor>
+			<selectedColor>000000</selectedColor>
+			<primaryColor>000000</primaryColor>
+			<secondaryColor>ffffff</secondaryColor>
+			<fontPath>./assets/8bitoperator.ttf</fontPath>
+			<fontSize>0.075</fontSize>
+			<scrollSound>./assets/select.wav</scrollSound>
+		</textlist> 	
+		
+		<image name="logo">
+			<pos>0.5 0.08</pos>
+			<origin>0.5 0.5</origin>
+			<maxSize>1 0.10</maxSize>
+		</image>
+	</view>
+	
+</theme>
