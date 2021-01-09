@@ -389,7 +389,7 @@ int main(int argc, char** argv)
 		if (argc > 2)
 		{
 			c = argv[2][0];
-			if (c == 'u' || c == 'd' || c=='w')
+			if (c == 'u' || c == 'd' || c=='w' || c == 'p' || c == 'f')
 			{
 				dir = c;
 			}
@@ -423,7 +423,7 @@ int main(int argc, char** argv)
 	// Reset all output
 	//pca9685PWMReset(fd);
 
-
+	printf("%c %c\n", arm, dir);
 	// Set servo to neutral position at 1.5 milliseconds
 	// (View http://en.wikipedia.org/wiki/Servo_control#Pulse_duration)
 	if (arm == 'b')
@@ -451,6 +451,30 @@ int main(int argc, char** argv)
 			delay(250);
 			move2(PIN_BASE + 0, saveTick1, PIN_BASE + 1, saveTick2, del);
 
+		}
+		else if (dir == 'p')
+		{
+			printf("point\n");
+			int saveTick1 = rightCheck(digitalRead(PIN_BASE + 0) & 0xFFF);
+			int saveTick2 = leftCheck(digitalRead(PIN_BASE + 1) & 0xFFF);
+
+			float millis = millisFromAngle(90);
+			int tick = calcTicks(millis, HERTZ);
+			move(PIN_BASE + 0, tick, del);
+
+			delay(100);
+
+			millis = millisFromAngle(90);
+			tick = calcTicks(millis, HERTZ);
+			move(PIN_BASE + 1, tick, del);
+
+			delay(100);
+
+			move(PIN_BASE + 0, saveTick1, del);
+
+			delay(200);
+
+			move(PIN_BASE + 0, saveTick2, del);
 		}
 		else
 		{
