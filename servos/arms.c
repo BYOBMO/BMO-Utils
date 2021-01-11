@@ -525,7 +525,7 @@ int main(int argc, char** argv)
 			int tick = calcTicks(millis, HERTZ);
 			move(PIN_BASE + 0, tick, del);
 
-			delay(1000);
+			delay(2000);
 
 			move(PIN_BASE + 0, saveTick1, del);
 		}
@@ -577,7 +577,7 @@ int main(int argc, char** argv)
 			int tick = calcTicks(millis, HERTZ);
 			move(PIN_BASE + 1, tick, del);
 
-			delay(1000);
+			delay(2000);
 
 			move(PIN_BASE + 1, saveTick2, del);
 		}

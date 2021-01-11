@@ -92,7 +92,7 @@ bool init()
 			}
 		}
 
-		gFont = TTF_OpenFont("fonts/8bitoperator/8bitoperator.ttf", 36);
+		gFont = TTF_OpenFont("/home/pi/bmos/parade/fonts/8bitoperator/8bitoperator.ttf", 36);
 		if (gFont == NULL)
 		{
 			printf("Failed to load lazy font! SDL_ttf Error: %s\n", TTF_GetError());
@@ -208,6 +208,9 @@ int main(int argc, char **argv)
 		int lastPos = 0;
 		SDL_Color textYellow = { 255, 255, 0 };
 		SDL_Color textGreen = { 0, 255, 0 };
+
+		SDL_RenderClear(gRenderer);
+		SDL_RenderPresent(gRenderer);
 
 		if (exists("/home/pi/bmos/parade/parade.txt"))
 		{
