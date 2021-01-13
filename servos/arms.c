@@ -19,7 +19,7 @@ int leftMax = 160;
 int rightMin = 20;
 int rightMax = 130;
 
-#define VERSION "v1.2"
+#define VERSION "v1.3"
 
 void getLimits()
 {
@@ -612,6 +612,11 @@ int main(int argc, char** argv)
 	int leftTick = digitalRead(PIN_BASE + 1) & 0xFFF;
 	int rightTick = digitalRead(PIN_BASE + 0) & 0xFFF;
 	savePosition(leftTick, rightTick);
+
+	delay(250);
+
+	pwmWrite(PIN_BASE + 0, 0);
+	pwmWrite(PIN_BASE + 1, 0);
 
 	return 0;
 }
