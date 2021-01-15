@@ -1,4 +1,8 @@
+# RetroPie Extensions
 
+##Splashscreen
+
+##Theme
 sudo cp -r BMO-Utils/RetroPie/bmos-theme/ /etc/emulationstation/themes/
 
 sudo nano /etc/emulationstation/es_systems.cfg
