@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.1)
 project(voice)
 
 
-install(FILES transcribe DESTINATION /home/pi/bmos/gv 
+install(FILES transcribe.py DESTINATION /home/pi/bmos/gv 
 PERMISSIONS WORLD_EXECUTE GROUP_EXECUTE OWNER_EXECUTE
 	WORLD_WRITE GROUP_WRITE OWNER_WRITE
 	WORLD_READ GROUP_READ OWNER_READ)
