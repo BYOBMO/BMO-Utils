@@ -1,14 +1,32 @@
 # BMO Voice Translation
 
-This is my build of:
-https://github.com/GoogleCloudPlatform/cpp-samples/tree/master/speech/api/transcribe.cc
+BMO uses the Google Voice API portion of the Python SpeechRecognition library.
 
-You can build our own version but it's incredibally complicated and tends to fail a lot. It's impossible to build on a Pi Zero since it's so resource intensive. It's the gRPC that's the main problem. There isn't a C++ package available for the Pi. There might be other versions like Python but for voice translation I need as much speed as I can get since there is already some lag in the cloud translation.
+First install the package. I had to increase the swap file size on my Pi Zero because it was running into memory issues during installation.
+```
+sudo nano /etc/dphys-swapfile
+```
+Change
+```
+CONF_SWAPSIZE=100
+```
+To
+```
+CONF_SWAPSIZE=2048
+```
+Then restart the service
+```
+sudo /etc/init.d/dphys-swapfile stop
+sudo /etc/init.d/dphys-swapfile start
+```
 
-You aren't stuck using this particular program either (if you wnat to use Python, go for it!). Any program named transcribe that can take the raw audio and translate it will work. Just put it in the /home/pi/bmos/gv directory and BMO will find it.
+You should be able to install the package now.
+```
+pip install SpeechRecognition
+```
+Once everything is installed it's probably a good idea to set the swap file back to CONF_SWAPSIZE=100
 
-To get this version to work:
-
+Now you can install the BMO scripts.
 ```
 cd BMO-Utils/voice
 mkdir build
@@ -17,17 +35,14 @@ cmake ..
 make install
 ```
 
-For this to work you will need Google Speech-To-Text credentials. You will need your credentials in a file called credentials.json in the /home/pi/bmos directory.
-
-You can find out how to create your credentials here:
-https://github.com/GoogleCloudPlatform/cpp-samples/tree/master/speech/api#build-and-run
-
-To test you first need an audio file and then process it with the google-voice.sh script.
+To test it out, first record a file. Say something intelligent then hit ctrl-C to stop the recording.
 ```
-export LD_LIBRARY_PATH="/home/pi/bmos/gv/opt"
-export GOOGLE_APPLICATION_CREDENTIALS="/home/pi/bmos/credentials.json"
+arecord -D pcm.micboost -c2 -r 48000 -f S32_LE -t wav -V mono -v out.wav
+```
 
-arecord -d 3 --format=S16_LE --rate=16000 --file-type=raw out.raw
-
+This will create a WAV file called out.wav that the translator will read.
+```
 /home/pi/bmos/scripts/google-voice.sh
 ```
+You should see a translation of your file printed to the console.
+
