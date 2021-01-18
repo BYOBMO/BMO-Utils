@@ -3,15 +3,22 @@
 ## PCA9685
 First, make sure your installation has the required files to support compiling for the PCA9685 I2C chip.
 ```
+cd ~
 sudo apt-get install wiringpi
 git clone https://github.com/Reinbert/pca9685
-cd src
+cd pca9685/src
 sudo make install
+```
+
+Go back to where you cloned https://github.com/BYOBMO/BMO-Utils.git
+In my case it's /home/pi/git so:
+```
+cd /home/pi/git
 ```
 
 ## Servos
 ```
-cd BMO-Utils/servos
+cd ./BMO-Utils/servos
 mkdir build
 cd build
 cmake ..
