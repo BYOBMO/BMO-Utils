@@ -1,5 +1,16 @@
 # Servo Setup
 
+To get the servos working you need to enable I2C support in raspi-config.
+```
+sudo raspi-config
+```
+
+* Choose "Interfacing Options".
+* Select I2C
+* Select yes when asked to enable it.
+* Reboot.
+
+
 ## PCA9685
 First, make sure your installation has the required files to support compiling for the PCA9685 I2C chip.
 ```
