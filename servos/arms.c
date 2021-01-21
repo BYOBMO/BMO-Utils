@@ -54,8 +54,8 @@ void getLimits()
 			rightMax = max;
 		}
 
-		printf("left %d %d\n", leftMin, leftMax);		
-		printf("right %d %d\n", rightMin, rightMax);
+//		printf("left %d %d\n", leftMin, leftMax);		
+//		printf("right %d %d\n", rightMin, rightMax);
 		fclose(f);
 	}
 	else
@@ -108,8 +108,8 @@ void loadPosition()
 			right = val;
 		}
 
-		printf("left %d\n", left);
-		printf("right %d\n", right);
+//		printf("left %d\n", left);
+//		printf("right %d\n", right);
 		fclose(f);
 
 		pwmWrite(PIN_BASE + 0, right);
@@ -423,7 +423,7 @@ int main(int argc, char** argv)
 	// Reset all output
 	//pca9685PWMReset(fd);
 
-	printf("%c %c\n", arm, dir);
+//	printf("%c %c\n", arm, dir);
 	// Set servo to neutral position at 1.5 milliseconds
 	// (View http://en.wikipedia.org/wiki/Servo_control#Pulse_duration)
 	if (arm == 'b')
@@ -454,7 +454,7 @@ int main(int argc, char** argv)
 		}
 		else if (dir == 'p')
 		{
-			printf("point\n");
+//			printf("point\n");
 			int saveTick1 = rightCheck(digitalRead(PIN_BASE + 0) & 0xFFF);
 			int saveTick2 = leftCheck(digitalRead(PIN_BASE + 1) & 0xFFF);
 
