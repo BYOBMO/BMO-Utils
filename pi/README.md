@@ -6,7 +6,7 @@ Just replace your current .bachrc with this one.
 
 Save your old version.
 ```
-mv ~/.baschrc ~/.bashrc.bak
+mv ~/.bashrc ~/.bashrc.bak
 ```
 Copy the new version.
 ```
