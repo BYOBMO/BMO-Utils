@@ -40,6 +40,11 @@ To test it out, first record a file. Say something intelligent then hit ctrl-C t
 arecord -D pcm.micboost -c2 -r 48000 -f S32_LE -t wav -V mono -v out.wav
 ```
 
+You might need to install Flac first.
+```
+sudo apt-get install flac
+```
+
 This will create a WAV file called out.wav that the translator will read.
 ```
 /home/pi/bmos/scripts/google-voice.sh
