@@ -13,11 +13,11 @@ To get the audio settings finalized you have to play some audio. It's a quirk of
 
 ```
 cd BMO-Utils/audio
-record.sh
+./record.sh
 ```
 Say something and then hit ctrl-C to end the recording. You should now have a file.wav file. You can play it back with aplay.
 ```
-aplay file.wav
+aplay out.wav
 ```
 
 It might sound good. It might sound bad. Adjusting the settings with alsamixer should clean things up.
