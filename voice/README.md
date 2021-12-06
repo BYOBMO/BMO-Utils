@@ -21,6 +21,12 @@ sudo /etc/init.d/dphys-swapfile start
 ```
 
 You should be able to install the package now.
+You may need to install pip first:
+
+```
+curl -O https://bootstrap.pypa.io/get-pip.py
+sudo python3 get-pip.py
+```
 ```
 pip install SpeechRecognition
 ```
