@@ -1,0 +1,28 @@
+<theme>
+    <formatVersion>3</formatVersion>
+    <include>./../bmos.xml</include>
+
+	<view name="system">
+
+	<!-- basic, detailed -->
+	
+		<image name="logo">
+			<path>./logo.png</path>
+        </image>
+	</view>
+	
+	<view name="basic, detailed">
+
+		<text name="logoText" extra="true">
+			<text>Game Boy</text>
+		<!-- <forceUppercase>1</forceUppercase> -->
+			<size>0.45 0.08</size>
+			<pos>0.275 0.925</pos>
+			<color>00AA88</color>
+			<fontPath>./../assets/font2.ttf</fontPath>
+			<fontSize>0.08</fontSize>
+			<alignment>center</alignment>
+		</text>
+	</view>
+	
+</theme>
