@@ -6,7 +6,7 @@ try:
       audio = r.record(source)
 
    try:
-      x = r.recognize_google(audio)
+      x = r.recognize_google(audio, show_all=False, language="en-US")
       print('"' + x + '"')
    except sr.UnknownValueError:
        print("ERR: Google Speech Recognition could not understand audio")
